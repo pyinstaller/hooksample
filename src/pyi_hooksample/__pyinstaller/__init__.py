@@ -18,22 +18,18 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-language: python
-python: 3.7
-dist: xenial
+import os
 
-branches:
-  except:
-    - /pyup\/.*/
+def get_hook_dirs():
+    """Return a sequence of strings, each element of which provides an
+    additional absolute path to search for hooks. This is equivalent to
+    passing the ``additional-hooks-dir`` command-line option to PyInstaller
+    for each string in the sequence.
+    """
+    return [os.path.dirname(__file__)]
 
-install:
-  # We need pip>=18.0 to handle the extra requirements below.
-  - python -m pip install 'pip>=18.0'
-  # When installing, include dependencies needed to run tests.
-  - pip install .[test]
-
-script:
-  # Run test the suite of our package. (Here we use pytest, but of
-  # course you might use any other way to run the tests.)
-  - pytest tests/test_basic.py
-  - python -m PyInstaller.utils.run_tests --include_only pyi_hooksample.
+def get_PyInstaller_tests():
+    """Return a sequence of strings, each of which is an absolute path to a
+    directory tree or Python source file to pass to pytest for test discovery.
+    """
+    return [os.path.dirname(__file__)]

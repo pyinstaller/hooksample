@@ -18,22 +18,25 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-language: python
-python: 3.7
-dist: xenial
+import subprocess
 
-branches:
-  except:
-    - /pyup\/.*/
+from PyInstaller import __main__ as pyi_main
 
-install:
-  # We need pip>=18.0 to handle the extra requirements below.
-  - python -m pip install 'pip>=18.0'
-  # When installing, include dependencies needed to run tests.
-  - pip install .[test]
 
-script:
-  # Run test the suite of our package. (Here we use pytest, but of
-  # course you might use any other way to run the tests.)
-  - pytest tests/test_basic.py
-  - python -m PyInstaller.utils.run_tests --include_only pyi_hooksample.
+def test_pyi_hooksample(tmp_path):
+    workpath = tmp_path / "build"
+    distpath = tmp_path / "dist"
+    app = tmp_path / "userapp.py"
+    app.write_text("\n".join([
+        "import pyi_hooksample",
+        "pyi_hooksample.do_import()",
+        "pyi_hooksample.print_message()"]))
+    args = [
+        # use options to get all generated file in tmp_path
+        '--workpath', str(workpath),
+        '--distpath', str(distpath),
+        '--specpath', str(tmp_path),
+        str(app),
+        ]
+    pyi_main.run(args)
+    subprocess.run([str(distpath / "userapp" / "userapp")])

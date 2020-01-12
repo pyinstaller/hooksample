@@ -18,22 +18,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-language: python
-python: 3.7
-dist: xenial
+from PyInstaller.utils.hooks import collect_data_files
 
-branches:
-  except:
-    - /pyup\/.*/
-
-install:
-  # We need pip>=18.0 to handle the extra requirements below.
-  - python -m pip install 'pip>=18.0'
-  # When installing, include dependencies needed to run tests.
-  - pip install .[test]
-
-script:
-  # Run test the suite of our package. (Here we use pytest, but of
-  # course you might use any other way to run the tests.)
-  - pytest tests/test_basic.py
-  - python -m PyInstaller.utils.run_tests --include_only pyi_hooksample.
+hiddenimports = ["pyi_hooksample._hidden"]
+datas = collect_data_files('pyi_hooksample')
