@@ -1,0 +1,4 @@
+exclude .* *.yml *~ .directory
+global-exclude *.py[co]
+
+include src/pyi_hooksample/*.txt
