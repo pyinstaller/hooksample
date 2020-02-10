@@ -17,14 +17,16 @@
 #
 #   SPDX-License-Identifier: GPL-3.0-or-later
 #
-# ***************************
-# |docname| - A hidden import
-# ***************************
+# ************************************************************************************
+# ``pre_find_module_path/`` |docname| - Provide PyInstaller pre-find module path hooks
+# ************************************************************************************
 #
-# This module is imported using ``importlib`` by :ref:`do_import`.
-# Since PyInstaller only performs static analysis, it cannot detect
-# that import.
+# This is a dummy `pre-find module path hook
+# <https://pyinstaller.readthedocs.io/en/stable/hooks.html#the-pre-find-module-path-pfmp-api-method>`_.
+# These are rarely used.
+# Please refer to the manual for details.
 #
-# When imported, it just shows that this import was found.
-#
-print("Hello, I'm hidden")
+from PyInstaller.utils.hooks import logger
+
+def pre_find_module_path(api):
+    logger.info("Running pre-find module path hook for pyi_hooksample.")

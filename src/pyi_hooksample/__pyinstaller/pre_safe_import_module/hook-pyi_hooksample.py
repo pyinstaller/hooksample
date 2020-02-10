@@ -17,14 +17,16 @@
 #
 #   SPDX-License-Identifier: GPL-3.0-or-later
 #
-# ***************************
-# |docname| - A hidden import
-# ***************************
-#
-# This module is imported using ``importlib`` by :ref:`do_import`.
-# Since PyInstaller only performs static analysis, it cannot detect
-# that import.
-#
-# When imported, it just shows that this import was found.
-#
-print("Hello, I'm hidden")
+# ****************************************************************************************
+# ``pre_safe_import_module/`` |docname| - Provide PyInstaller pre-safe import module hooks
+# ****************************************************************************************
+
+# This is a dummy `pre-safe import module hook
+# <https://pyinstaller.readthedocs.io/en/stable/hooks.html#the-pre-safe-import-module-psim-api-method>`_.
+# These are rarely used.
+# Please refer to the manual for details.
+
+from PyInstaller.utils.hooks import logger
+
+def pre_safe_import_module(api):
+    logger.info("Pre-safe import module hook for pyi_hooksample was executed.")
