@@ -1,3 +1,5 @@
+# .. -*- mode: python -*-
+#
 # .. Copyright © 2020 PyInstaller Development Team
 #
 #   This file is part of PyInstaller Hook Sample.
@@ -17,14 +19,21 @@
 #
 #   SPDX-License-Identifier: GPL-3.0-or-later
 #
-# ***************************
-# |docname| - A hidden import
-# ***************************
+# ******************************************
+# |docname| - Run-time hooks for PyInstaller
+# ******************************************
 #
-# This module is imported using ``importlib`` by :ref:`do_import`.
-# Since PyInstaller only performs static analysis, it cannot detect
-# that import.
+# A `run-time hook` might be required for several modules,
+# but of course should only run once.
+# Also some module might require several `run-time hooks`.
+# This is why `run-time hooks` are to be listed in the here.
 #
-# When imported, it just shows that this import was found.
-#
-print("Hello, I'm hidden")
+# A run-time hooks data file consists of a single dictionary.
+{
+    # Each key is the name of a module.
+    'pyi_hooksample': [
+        # Each value is a list of run-time hooks to include for this
+        # module. See :doc:`rthooks/pyi_rth_hooksample.py`.
+        'pyi_rth_hooksample.py'
+    ],
+}

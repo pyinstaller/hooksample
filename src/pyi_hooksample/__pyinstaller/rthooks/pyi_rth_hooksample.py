@@ -17,14 +17,18 @@
 #
 #   SPDX-License-Identifier: GPL-3.0-or-later
 #
-# ***************************
-# |docname| - A hidden import
-# ***************************
+# *******************************************************
+# |docname| - A run-time hook for the hook sample library
+# *******************************************************
 #
-# This module is imported using ``importlib`` by :ref:`do_import`.
-# Since PyInstaller only performs static analysis, it cannot detect
-# that import.
+# If some module needs extra set-up at run-time
+# (e.g. setting an environment variable)
+# this can be done in a `run-time hook`.
+# The same `run-time hook` script might be used for several module,
+# but of course sould only be run once.
+# This is why `run-time hooks` are to be listed in the
+# :doc:`rthooks.dat <../rthooks.dat>` file.
 #
-# When imported, it just shows that this import was found.
-#
-print("Hello, I'm hidden")
+# Thus dummy run-time hook does nothing useful,
+# just shows that it was included.
+print(">>> Hook sample run-time hook was executed. <<<")
