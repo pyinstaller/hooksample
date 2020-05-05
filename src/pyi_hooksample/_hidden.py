@@ -17,6 +17,8 @@
 #
 #   SPDX-License-Identifier: GPL-3.0-or-later
 #
+# :orphan:
+#
 # ***************************
 # |docname| - A hidden import
 # ***************************

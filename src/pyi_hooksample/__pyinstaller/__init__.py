@@ -43,8 +43,11 @@
 #
 #   rthooks/pyi_rth_hooksample.py
 #   rthooks.dat
+#   rthooks/__init__.py
 #   pre_find_module_path/hook-pyi_hooksample.py
+#   pre_find_module_path/__init__.py
 #   pre_safe_import_module/hook-pyi_hooksample.py
+#   pre_safe_import_module/__init__.py
 
 import os
 

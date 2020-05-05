@@ -16,8 +16,11 @@
 #   with PyInstaller Hook Sample. If not, see <http://www.gnu.org/licenses/>.
 #
 #   SPDX-License-Identifier: GPL-3.0-or-later
-
-import pytest
+#
+# **********************************
+# |docname| - Tests for this module
+# **********************************
+# This file provides simple tests of :doc:`../src/pyi_hooksample/__init__.py`.
 import pyi_hooksample
 
 def test_do_import():
