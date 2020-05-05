@@ -50,4 +50,4 @@ def test_pyi_hooksample(tmp_path):
         str(app),
         ]
     pyi_main.run(args)
-    subprocess.run([str(distpath / "userapp" / "userapp")])
+    subprocess.run([str(distpath / "userapp" / "userapp")], check=True)
