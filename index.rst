@@ -28,8 +28,8 @@ package. All source is `available on Github
 * Finally, it provides a short :doc:`test script
   <src/pyi_hooksample/__pyinstaller/test_hooksample_packaging.py>`
   to ensure the hooks work correctly. This is also :ref:`registered with
-  PyInstaller <tests_registration>`, which enables running two sets of
-  tests:
+  PyInstaller <tests_registration>`, which enables running this test
+  in two locations:
 
   * This package can run tests to ensure the hook produces a working
     executable when frozen by PyInstaller. For example, :ref:`CI
@@ -51,6 +51,7 @@ Contents
 
     src/pyi_hooksample/__init__.py
     src/pyi_hooksample/__pyinstaller/__init__.py
+    tests/test_basic.py
     setup.cfg
     .travis.yml
 
