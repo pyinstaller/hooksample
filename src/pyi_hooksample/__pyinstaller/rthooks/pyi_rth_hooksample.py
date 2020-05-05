@@ -23,10 +23,10 @@
 #
 # If some module needs extra set-up at run-time
 # (e.g. setting an environment variable)
-# this can be done in a `run-time hook`.
-# The same `run-time hook` script might be used for several module,
+# this can be done in a *run-time hook*.
+# The same *run-time hook* script might be used for several module,
 # but of course sould only be run once.
-# This is why `run-time hooks` are to be listed in the
+# This is why *run-time hooks* are to be listed in the
 # :doc:`rthooks.dat <../rthooks.dat>` file.
 #
 # Thus dummy run-time hook does nothing useful,

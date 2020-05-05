@@ -23,10 +23,10 @@
 # |docname| - Run-time hooks for PyInstaller
 # ******************************************
 #
-# A `run-time hook` might be required for several modules,
+# A *run-time hook* might be required for several modules,
 # but of course should only run once.
-# Also some module might require several `run-time hooks`.
-# This is why `run-time hooks` are to be listed in the here.
+# Also some module might require several *run-time hooks*.
+# This is why *run-time hooks* are to be listed in the here.
 #
 # A run-time hooks data file consists of a single dictionary.
 {
