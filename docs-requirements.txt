@@ -1,8 +1,6 @@
-# Pip requirements for building the  documentation
-CodeChat
+# Pip requirements for building the documentation
+CodeChat >= 1.8.1
 # CodeChat relies on Sphinx v2.0 (Python 3 only).
 sphinx >= 2
 # These docs use the ReadTheDocs Sphinx theme.
 sphinx-rtd-theme
-# CodeChat 1.7.3 fails with pygements 2.6
-pygments<2.6

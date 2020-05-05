@@ -32,6 +32,7 @@
 #
 import sys, os
 import sphinx_rtd_theme
+import CodeChat.CodeToRest
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -78,7 +79,7 @@ exclude_patterns = [
     "Thumbs.db",
     ".DS_Store",
     "_build",
-    #"README.rst",
+    "README.rst",
     "build",
     "dist",
     "_venv",
@@ -138,11 +139,15 @@ CodeChat_lexer_for_glob = {
 #
 html_theme = "sphinx_rtd_theme"
 
+# `html_static_path <http://sphinx-doc.org/config.html#confval-html_static_path>`_:
 # Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-# **CodeChat note:** This must always include ``CodeChat.css``.
-html_static_path = ["CodeChat.css"]
+# relative to this directory. They are copied after the builtin static files, so
+# a file named ``default.css`` will overwrite the builtin ``default.css``.
+# **CodeChat note:** Include the path to CodeChat's static files.
+html_static_path = CodeChat.CodeToRest.html_static_path()
+
+# Fix up styles for the ReadTheDocs theme.
+html_css_files = ['CodeChat_sphinx_rtd_theme.css']
 
 # Insert a 'Last updated on:' timestamp at every page bottom.
 html_last_updated_fmt = "%Y-%m-%d"
