@@ -20,34 +20,33 @@
 # ********************************************************
 # |docname| - Test freezing this project using PyInstaller
 # ********************************************************
-#
 # This file's name begins with ``test_``, which means it will be
 # automatically `discovered by pytest
 # <https://docs.pytest.org/en/latest/goodpractices.html#test-discovery>`_.
-#
+
 import subprocess
 
 from PyInstaller import __main__ as pyi_main
-#
+
+
 # Tests
 # =====
-#
 # Test out the package by importing it, then running functions from it.
-#
 def test_pyi_hooksample(tmp_path):
+    app_name = "userapp"
     workpath = tmp_path / "build"
     distpath = tmp_path / "dist"
-    app = tmp_path / "userapp.py"
+    app = tmp_path / (app_name + ".py")
     app.write_text("\n".join([
         "import pyi_hooksample",
         "pyi_hooksample.do_import()",
         "pyi_hooksample.print_message()"]))
     args = [
-        # use options to get all generated file in tmp_path
+        # Place all generated files in ``tmp_path``.
         '--workpath', str(workpath),
         '--distpath', str(distpath),
         '--specpath', str(tmp_path),
         str(app),
-        ]
+    ]
     pyi_main.run(args)
-    subprocess.run([str(distpath / "userapp" / "userapp")], check=True)
+    subprocess.run([str(distpath / app_name / app_name)], check=True)
