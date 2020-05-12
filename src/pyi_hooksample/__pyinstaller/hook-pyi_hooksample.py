@@ -43,4 +43,8 @@ from PyInstaller.utils.hooks import collect_data_files
 # in the manual for more information.
 
 hiddenimports = ["pyi_hooksample._hidden"]
-datas = collect_data_files('pyi_hooksample')
+# The ``excludes`` parameter of `collect_data_files
+# <https://pyinstaller.readthedocs.io/en/stable/hooks.html#useful-items-in-pyinstaller-utils-hooks>`_
+# excludes ``rthooks.dat`` from the frozen executable, which is only needed when
+# freezeing, but not when executing the frozen program.
+datas = collect_data_files('pyi_hooksample', excludes=['__pyinstaller'])
