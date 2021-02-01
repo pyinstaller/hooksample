@@ -25,7 +25,7 @@
 # (e.g. setting an environment variable)
 # this can be done in a *run-time hook*.
 # The same *run-time hook* script might be used for several module,
-# but of course sould only be run once.
+# but of course should only be run once.
 # This is why *run-time hooks* are to be listed in the
 # :doc:`rthooks.dat <../rthooks.dat>` file.
 #
